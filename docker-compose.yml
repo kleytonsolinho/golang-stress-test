@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    command: ["./server", "--url=http://google.com", "--requests=100", "--concurrency=10"]
+    networks:
+        - my_custom_network
+
+networks:
+  my_custom_network:
+    driver: bridge
